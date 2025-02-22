@@ -1,0 +1,95 @@
+ Templates in OOP
+
+What are Templates?
+
+Templates in C++ allow us to write generic and reusable code. They enable functions and classes to work with any data type without rewriting code for different types.
+
+Key Features of Templates:
+
+Code Reusability: Write one function/class for multiple data types.
+
+Type Safety: Ensures correct data type usage.
+
+Flexibility: Works with user-defined types.
+
+Reduces Code Duplication: Eliminates redundant code for different data types.
+
+Function Templates
+
+Function templates enable the creation of functions that work with any data type.
+
+Syntax:
+
+template <typename T>
+T functionName(T parameter) {
+    // Function body
+}
+
+Example: Function Template for Swapping Two Values
+
+#include <iostream>
+using namespace std;
+
+template <typename T>
+void swapValues(T &a, T &b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 5, y = 10;
+    swapValues(x, y);
+    cout << "Swapped values: " << x << " " << y << endl;
+    
+    double p = 1.5, q = 2.5;
+    swapValues(p, q);
+    cout << "Swapped values: " << p << " " << q << endl;
+    
+    return 0;
+}
+
+Class Templates
+
+Class templates allow the creation of generic classes that work with multiple data types.
+
+Syntax:
+
+template <typename T>
+class ClassName {
+    // Class members
+};
+
+Example: Class Template for a Generic Box
+
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Box {
+private:
+    T value;
+public:
+    Box(T val) { value = val; }
+    void show() { cout << "Value: " << value << endl; }
+};
+
+int main() {
+    Box<int> intBox(10);
+    intBox.show();
+    
+    Box<double> doubleBox(5.5);
+    doubleBox.show();
+    
+    return 0;
+}
+
+Summary
+
+Templates enable generic programming for functions and classes.
+
+Function templates allow reusable functions for different data types.
+
+Class templates create flexible classes that work with multiple types.
+
+Enhances code reusability, type safety, and reduces redundancy.
