@@ -1,0 +1,123 @@
+File Handling in OOP
+
+What is File Handling?
+
+File handling in C++ allows us to store and retrieve data from files. It is essential for reading/writing data persistently beyond program execution.
+
+Key Features of File Handling:
+
+Persistent Storage: Stores data permanently.
+
+Uses Streams: ifstream for reading, ofstream for writing, fstream for both.
+
+Handles Large Data Efficiently: Manages large data without storing it in memory.
+
+Can Be Used with OOP: Helps in saving/loading objects.
+
+File Handling in C++
+
+C++ provides fstream library for file operations:
+
+#include <fstream>
+
+Opening and Closing a File
+
+Files should always be closed after operations to avoid data corruption.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt"); // Open file for writing
+    if (outFile.is_open()) {
+        outFile << "Hello, file handling in C++!";
+        outFile.close(); // Close the file
+    }
+    return 0;
+}
+
+Writing to a File
+
+We use ofstream to write data to a file.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream file("data.txt");
+    file << "This is a line written to a file.";
+    file.close();
+    return 0;
+}
+
+Reading from a File
+
+We use ifstream to read data from a file.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream file("data.txt");
+    string line;
+    while (getline(file, line)) {
+        cout << line << endl;
+    }
+    file.close();
+    return 0;
+}
+
+File Handling with Classes
+
+We can integrate file handling into classes for better data management.
+
+Example: Writing and Reading an Object
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    void saveToFile() {
+        ofstream file("student.txt");
+        file << name << endl;
+        file << age << endl;
+        file.close();
+    }
+
+    void readFromFile() {
+        ifstream file("student.txt");
+        getline(file, name);
+        file >> age;
+        file.close();
+    }
+};
+
+int main() {
+    Student s1;
+    s1.name = "Alice";
+    s1.age = 20;
+    s1.saveToFile();
+
+    Student s2;
+    s2.readFromFile();
+    cout << "Name: " << s2.name << ", Age: " << s2.age << endl;
+    return 0;
+}
+
+Summary
+
+File handling stores and retrieves data from files.
+
+ofstream writes data, ifstream reads data, fstream does both.
+
+Always close files after use.
+
+File handling can be integrated into OOP for object storage.
