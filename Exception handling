@@ -1,0 +1,107 @@
+Exception Handling in OOP
+
+What is Exception Handling?
+
+Exception handling is a mechanism in C++ that allows a program to deal with runtime errors gracefully. Instead of crashing, the program can catch errors and take appropriate actions.
+
+Key Features of Exception Handling:
+
+Ensures Program Stability: Prevents unexpected crashes.
+
+Uses try, catch, and throw: Handles errors effectively.
+
+Improves Debugging: Helps identify errors and take corrective measures.
+
+Prevents Data Corruption: Ensures proper program execution even in error situations.
+
+Basic Syntax of Exception Handling
+
+try {
+    // Code that may throw an exception
+    throw exception;
+} catch (type exceptionVar) {
+    // Handle exception
+}
+
+Example: Basic Exception Handling
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        int num1 = 10, num2 = 0;
+        if (num2 == 0)
+            throw "Division by zero error!"; // Throwing an exception
+        cout << "Result: " << num1 / num2 << endl;
+    } catch (const char* e) {
+        cout << "Exception caught: " << e << endl;
+    }
+    return 0;
+}
+
+Exception Handling with Classes
+
+We can handle exceptions in class methods to catch errors and prevent program failures.
+
+Example: Exception Handling in a Class
+
+#include <iostream>
+using namespace std;
+
+class Division {
+public:
+    static double divide(int a, int b) {
+        if (b == 0)
+            throw "Error: Division by zero!"; // Throwing exception
+        return (double)a / b;
+    }
+};
+
+int main() {
+    try {
+        cout << "Result: " << Division::divide(10, 0) << endl;
+    } catch (const char* e) {
+        cout << "Exception: " << e << endl;
+    }
+    return 0;
+}
+
+Multiple Catch Blocks
+
+A try block can have multiple catch blocks to handle different types of exceptions.
+
+Example: Handling Multiple Exception Types
+
+#include <iostream>
+using namespace std;
+
+void checkNumber(int num) {
+    if (num < 0)
+        throw "Negative Number Error!";
+    else if (num == 0)
+        throw 0;
+    else
+        cout << "Valid number: " << num << endl;
+}
+
+int main() {
+    try {
+        checkNumber(-5);
+    } catch (const char* e) {
+        cout << "Caught Exception: " << e << endl;
+    } catch (int e) {
+        cout << "Caught Exception: Zero is not allowed!" << endl;
+    }
+    return 0;
+}
+
+Summary
+
+Exception handling prevents program crashes.
+
+Uses try, catch, and throw.
+
+Multiple catch blocks handle different types of exceptions.
+
+Works well with classes to ensure safe execution.
