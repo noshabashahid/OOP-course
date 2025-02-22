@@ -30,34 +30,5 @@ Improves maintainability by organizing code into objects.
 Provides modularity making code easier to debug and extend.
 
 Supports real-world modeling as everything is represented as objects.
-# Details
-# 1. Class and Object
-
-Class: A blueprint or template for creating objects.
-
-Object: An instance of a class that has its own values for the attributes.
-
-
-# 2. Encapsulation
-
-Encapsulation is the concept of restricting direct access to some of an object's components, which can prevent unintended modifications. It is implemented using access specifiers:
-
-Private: Accessible only within the same class.
-
-Public: Accessible from outside the class.
-
-Protected: Accessible within the same class and derived classes.
-
-# 3. Abstraction
-
-Abstraction allows hiding the implementation details of a class and only showing the necessary functionalities. It can be implemented using abstract classes and interfaces.
-
-# 4. Inheritance
-
-Inheritance allows a new class to inherit attributes and methods from an existing class. It promotes code reuse and reduces redundancy.
-
-# 5. Polymorphism
-
-Polymorphism allows one interface to be used for a general class of actions. The specific action is determined by the exact nature of the situation.
 
 
