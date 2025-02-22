@@ -1,0 +1,89 @@
+Friend Functions and Friend Classes in OOP
+
+What are Friend Functions?
+
+A friend function is a function that is not a member of a class but has access to its private and protected members. It is useful when two or more classes need to share information without making their private data public.
+
+Key Features of Friend Functions:
+
+Access Private Data: A friend function can access private and protected members of a class.
+
+Defined Outside Class Scope: It is not a member function of the class.
+
+Declared Using friend Keyword: The function is declared inside the class but defined outside.
+
+Example: Friend Function
+
+#include <iostream>
+using namespace std;
+
+class Box {
+private:
+    int width;
+
+public:
+    Box(int w) : width(w) {}
+    // Declaring friend function
+    friend void printWidth(Box b);
+};
+
+// Friend function definition
+void printWidth(Box b) {
+    cout << "Width of Box: " << b.width << endl;
+}
+
+int main() {
+    Box box(10);
+    printWidth(box); // Accessing private member through friend function
+    return 0;
+}
+
+What are Friend Classes?
+
+A friend class is a class that is given access to private and protected members of another class. This allows tight collaboration between classes without exposing data publicly.
+
+Key Features of Friend Classes:
+
+One Class Can Access Another's Private Members: Useful for closely related classes.
+
+Defined Using friend Keyword: Declared inside a class but used by another class.
+
+Promotes Collaboration Between Classes: Helps when multiple classes need direct access to data.
+
+Example: Friend Class
+
+#include <iostream>
+using namespace std;
+
+class Engine; // Forward declaration
+
+class Car {
+private:
+    int speed;
+
+public:
+    Car(int s) : speed(s) {}
+    friend class Engine; // Declaring Engine as a friend class
+};
+
+class Engine {
+public:
+    void showSpeed(Car c) {
+        cout << "Car Speed: " << c.speed << " km/h" << endl;
+    }
+};
+
+int main() {
+    Car myCar(120);
+    Engine myEngine;
+    myEngine.showSpeed(myCar); // Accessing private member of Car
+    return 0;
+}
+
+Summary
+
+Friend functions allow non-member functions to access private/protected data.
+
+Friend classes allow one class to access another class’s private/protected members.
+
+friend keyword is used for both friend functions and friend classes.
