@@ -1,15 +1,15 @@
 # OOP-course
 A complete Object-Oriented Programming (OOP) course with definitions, explanations, and C++ examples.
 <br>
-#Basics
+# Basics
 <br>
 Introduction to Object-Oriented Programming (OOP)
 
-What is Object-Oriented Programming (OOP)?
+# What is Object-Oriented Programming (OOP)?
 
 Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects." Objects are instances of classes that contain both data (attributes) and functions (methods) that operate on the data. OOP is widely used in modern programming as it helps in organizing code efficiently and making it reusable.
 
-Key Features of OOP:
+# Key Features of OOP:
 
 Encapsulation - Bundling data and methods that operate on the data into a single unit (class).
 
@@ -19,7 +19,7 @@ Inheritance - Allowing one class to derive properties and behavior from another 
 
 Polymorphism - The ability of different classes to be treated as instances of the same class through a common interface.
 
-Why Use OOP?
+# Why Use OOP?
 
 OOP is beneficial because it:
 
