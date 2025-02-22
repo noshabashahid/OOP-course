@@ -1,0 +1,75 @@
+Static Members and Static Functions in OOP
+
+What are Static Members?
+
+Static members in C++ belong to a class rather than any specific object. They retain their value across all objects of the class and are shared among all instances.
+
+Key Features of Static Members:
+
+Shared Across All Objects: A single copy is shared among all objects.
+
+Defined Using static Keyword: Declared inside the class and initialized outside.
+
+Memory Allocation Happens Once: Stored in a fixed memory location.
+
+Example: Static Data Member
+
+#include <iostream>
+using namespace std;
+
+class Counter {
+private:
+    static int count; // Static data member
+
+public:
+    Counter() { count++; }
+    static void showCount() {
+        cout << "Count: " << count << endl;
+    }
+};
+
+// Initializing static member
+int Counter::count = 0;
+
+int main() {
+    Counter obj1, obj2, obj3;
+    Counter::showCount(); // Accessing static function
+    return 0;
+}
+
+What are Static Member Functions?
+
+A static member function is a function that belongs to a class rather than any specific object. It can access only static members of the class.
+
+Key Features of Static Member Functions:
+
+Can Be Called Without an Object: Invoked using ClassName::FunctionName().
+
+Can Only Access Static Members: Cannot access non-static data members.
+
+Memory Allocation Happens Once: Shared among all objects.
+
+Example: Static Member Function
+
+#include <iostream>
+using namespace std;
+
+class Math {
+public:
+    static int square(int x) {
+        return x * x;
+    }
+};
+
+int main() {
+    cout << "Square of 5: " << Math::square(5) << endl;
+    return 0;
+}
+
+Summary
+
+Static members are shared across all objects and retain values globally.
+
+Static functions belong to a class, not an instance, and can only access static members.
+
+Accessed using ClassName::FunctionName()
