@@ -16,16 +16,45 @@ Encapsulation - Bundling data and methods that operate on the data into a single
 ```cpp
 class Student {
 private: int age;
-public: void setAge(int a) { age = a; }  
-        int getAge() { return age; }
+public:
+void setAge(int a)
+{ age = a; }  
+        int getAge()
+{ return age; }
 };
-<br>
+```
+
 
 Abstraction - Hiding implementation details and exposing only necessary parts of an object.
+```cpp
+class Shape {
+ public:
+ virtual void draw() = 0; };  
+class Circle : public Shape {
+ public: void draw() { /* Draw Circle */ } };
+```
 
 Inheritance - Allowing one class to derive properties and behavior from another class.
+```cpp
+class Animal {
+ public: void eat()
+{ /* Eating */ } };  
+class Dog : public Animal {
+public:
+void bark() { /* Barking */ } };
+```
 
 Polymorphism - The ability of different classes to be treated as instances of the same class through a common interface.
+```cpp
+class Animal {
+public:
+ virtual void sound()
+{ /* Animal sound */ } };  
+class Dog : public Animal {
+ public:
+ void sound() override { /* Dog barks */ } };
+
+```
 
 # Why Use OOP?
 
