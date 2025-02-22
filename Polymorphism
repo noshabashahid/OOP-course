@@ -1,0 +1,136 @@
+Polymorphism in OOP
+
+What is Polymorphism?
+
+Polymorphism is one of the core concepts of Object-Oriented Programming (OOP). It allows the same function or operator to behave differently in different contexts, increasing flexibility and maintainability.
+
+Key Features of Polymorphism:
+
+Code Reusability: Reduces duplication by allowing the same function to be used for different types.
+
+Flexibility: Makes it easier to extend and modify code.
+
+Improved Maintainability: Reduces code complexity by using a single interface for multiple data types.
+
+Types of Polymorphism
+
+Polymorphism in C++ is broadly categorized into two types:
+
+1. Compile-Time (Static) Polymorphism
+
+This type of polymorphism is resolved during compilation. It includes:
+
+Function Overloading
+
+Operator Overloading
+
+Function Overloading
+
+Function overloading allows multiple functions with the same name but different parameters.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+class Math {
+public:
+    // Function with one parameter
+    int add(int a, int b) {
+        return a + b;
+    }
+    // Function with two parameters of different types
+    double add(double a, double b) {
+        return a + b;
+    }
+};
+
+int main() {
+    Math obj;
+    cout << "Sum (int): " << obj.add(5, 3) << endl;
+    cout << "Sum (double): " << obj.add(4.5, 2.3) << endl;
+    return 0;
+}
+
+Operator Overloading
+
+Operators like +, -, *, etc., can be overloaded to work with user-defined data types.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+    Complex(int r, int i) : real(r), imag(i) {}
+    Complex operator+(const Complex& obj) {
+        return Complex(real + obj.real, imag + obj.imag);
+    }
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(3, 2), c2(1, 7);
+    Complex c3 = c1 + c2;
+    c3.display();
+    return 0;
+}
+
+2. Run-Time (Dynamic) Polymorphism
+
+This type of polymorphism is resolved at runtime and is achieved through function overriding and virtual functions.
+
+Function Overriding
+
+A derived class provides a specific implementation of a function already defined in its base class.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void makeSound() {
+        cout << "Animal makes a sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void makeSound() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+    Animal* a;
+    Dog d;
+    a = &d;
+    a->makeSound(); // Calls the overridden function in Dog
+    return 0;
+}
+
+Virtual Functions
+
+A virtual function is a member function in the base class that you expect to be overridden in derived classes.
+
+Key points about virtual functions:
+
+Declared using the virtual keyword in the base class.
+
+Supports dynamic dispatch (the function call is resolved at runtime).
+
+Helps achieve run-time polymorphism.
+
+Summary
+
+Polymorphism allows a function or operator to take different forms.
+
+Compile-time polymorphism includes function overloading and operator overloading.
+
+Run-time polymorphism includes function overriding and virtual functions
