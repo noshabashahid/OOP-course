@@ -1,0 +1,94 @@
+ Abstraction in OOP
+
+What is Abstraction?
+
+Abstraction is an OOP principle that focuses on hiding the internal implementation details of an object and only exposing the necessary functionalities. It helps in reducing complexity and increasing code readability.
+
+Key Features of Abstraction:
+
+Hides Implementation Details: Users only interact with the necessary functions, not the underlying logic.
+
+Enhances Security: Prevents direct access to critical data.
+
+Improves Maintainability: Changes in implementation do not affect the users of the class.
+
+Encapsulation and Abstraction Work Together: Abstraction focuses on hiding details, while encapsulation ensures data is bundled together.
+
+Achieving Abstraction in C++
+
+Abstraction in C++ can be achieved in two ways:
+
+Using Abstract Classes (Pure Virtual Functions)
+
+Using Interfaces (Achieved through abstract classes)
+
+1. Abstract Classes and Pure Virtual Functions
+
+An abstract class is a class that cannot be instantiated and serves as a blueprint for derived classes. It contains at least one pure virtual function.
+
+Pure Virtual Function
+
+A pure virtual function is a function that must be overridden in a derived class. It is declared by assigning = 0 in the base class.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+// Abstract base class
+class Shape {
+public:
+    virtual void draw() = 0; // Pure virtual function
+};
+
+// Derived class
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing a Circle" << endl;
+    }
+};
+
+int main() {
+    Shape* s;
+    Circle c;
+    s = &c;
+    s->draw(); // Calls overridden function in Circle
+    return 0;
+}
+
+2. Interfaces (Achieved through Abstract Classes)
+
+In C++, interfaces are implemented using abstract classes where all functions are pure virtual.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+// Interface (Abstract class with only pure virtual functions)
+class Vehicle {
+public:
+    virtual void start() = 0;
+};
+
+class Car : public Vehicle {
+public:
+    void start() override {
+        cout << "Car starting..." << endl;
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.start();
+    return 0;
+}
+
+Summary
+
+Abstraction hides implementation details and only exposes essential features.
+
+Achieved using abstract classes and pure virtual functions.
+
+Interfaces are implemented using abstract classes where all methods are pure virtual.
