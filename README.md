@@ -12,6 +12,14 @@ Object-Oriented Programming (OOP) is a programming paradigm based on the concept
 # Key Features of OOP:
 
 Encapsulation - Bundling data and methods that operate on the data into a single unit (class).
+<br>
+```cpp
+class Student {
+private: int age;
+public: void setAge(int a) { age = a; }  
+        int getAge() { return age; }
+};
+<br>
 
 Abstraction - Hiding implementation details and exposing only necessary parts of an object.
 
