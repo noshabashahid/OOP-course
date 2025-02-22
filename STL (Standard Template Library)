@@ -1,0 +1,96 @@
+STL (Standard Template Library) in OOP
+
+What is STL?
+
+The Standard Template Library (STL) in C++ provides a collection of template-based classes and functions for handling common data structures and algorithms efficiently. It includes:
+
+Containers: Store collections of objects (e.g., vector, list, map).
+
+Algorithms: Perform operations like sorting and searching (e.g., sort, find).
+
+Iterators: Provide a way to traverse elements in containers.
+
+1. Containers in STL
+
+Containers are predefined data structures provided by STL. They are categorized into:
+
+Sequence Containers (Linear storage): vector, list, deque
+
+Associative Containers (Key-value storage): set, map, multimap
+
+Unordered Containers (Hashed storage): unordered_map, unordered_set
+
+Example: Using vector
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    numbers.push_back(6);
+
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+2. Algorithms in STL
+
+STL provides many built-in algorithms for sorting, searching, and modifying data.
+
+Example: Using sort and find
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {4, 2, 8, 1, 5};
+    sort(numbers.begin(), numbers.end()); // Sorting
+
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    if (find(numbers.begin(), numbers.end(), 8) != numbers.end()) {
+        cout << "Number 8 found!" << endl;
+    }
+    return 0;
+}
+
+3. Iterators in STL
+
+Iterators act as pointers to navigate elements in a container.
+
+Example: Using Iterators with vector
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> numbers = {10, 20, 30, 40};
+    vector<int>::iterator it;
+
+    for (it = numbers.begin(); it != numbers.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+Summary
+
+STL provides ready-made data structures (containers), algorithms, and iterators.
+
+Containers store collections efficiently.
+
+Algorithms provide functions for sorting, searching, etc.
+
+Iterators help navigate elements in containers.
+
