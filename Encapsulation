@@ -1,0 +1,118 @@
+Encapsulation and Data Hiding in OOP
+
+What is Encapsulation?
+
+Encapsulation is one of the fundamental principles of Object-Oriented Programming (OOP). It is the practice of bundling data (variables) and methods (functions) that operate on the data into a single unit called a class.
+
+Key Features of Encapsulation:
+
+Data Hiding: Restricts direct access to class members, protecting them from unintended modifications.
+
+Control Over Data: Provides controlled access via getter and setter methods.
+
+Improved Security: Prevents unauthorized access to sensitive data.
+
+Code Maintainability: Encourages modularity, making the code easier to manage.
+
+Implementing Encapsulation in C++
+
+Encapsulation is achieved by defining class members as private and providing public getter and setter methods.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+// Defining a class with encapsulation
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    // Setter method to set values
+    void setDetails(string studentName, int studentAge) {
+        name = studentName;
+        if (studentAge > 0) {
+            age = studentAge;
+        } else {
+            cout << "Invalid age!" << endl;
+            age = 0;
+        }
+    }
+
+    // Getter method to retrieve values
+    void getDetails() {
+        cout << "Student Name: " << name << endl;
+        cout << "Student Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student s1;
+    s1.setDetails("John Doe", 20);
+    s1.getDetails();
+    return 0;
+}
+
+Explanation:
+
+The private members name and age are not directly accessible from outside the class.
+
+The public methods setDetails() and getDetails() provide controlled access to these private members.
+
+The setDetails() method includes validation logic to ensure valid data is stored.
+
+Benefits of Encapsulation
+
+Prevents accidental modification of important data.
+
+Enhances code readability and maintenance.
+
+Enables controlled modification of data through setter methods.
+
+Protects data from unintended access by restricting direct modification.
+
+Data Hiding in Encapsulation
+
+Data hiding is an aspect of encapsulation where sensitive data is kept private and only accessible through controlled interfaces.
+
+Example:
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    BankAccount() { balance = 0; }
+
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            cout << "Invalid deposit amount!" << endl;
+        }
+    }
+
+    void showBalance() {
+        cout << "Current Balance: " << balance << endl;
+    }
+};
+
+Why Data Hiding is Important?
+
+Prevents external code from modifying critical values.
+
+Allows changes in implementation without affecting external code.
+
+Reduces dependency between different parts of a program.
+
+Summary
+
+Encapsulation combines data and methods into a single class.
+
+Private members prevent direct modification and ensure security.
+
+Public getter and setter methods allow controlled access.
+
+Data hiding protects sensitive information from unintended access.
