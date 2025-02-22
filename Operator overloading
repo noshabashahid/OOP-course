@@ -1,0 +1,117 @@
+Operator Overloading in OOP
+
+What is Operator Overloading?
+
+Operator overloading allows us to redefine how operators work for user-defined data types (classes). It enables intuitive operations on objects, just like built-in types.
+
+Key Features:
+
+Enhances Code Readability - Makes object operations more natural.
+
+Allows Custom Implementations - Define how operators work for class objects.
+
+Does Not Create New Operators - Only modifies existing ones.
+
+Must Use Member or Friend Functions - Operators are overloaded using class methods.
+
+Syntax of Operator Overloading
+
+type operator symbol (parameters) {
+    // Operator function body
+}
+
+Example: Overloading + Operator for Adding Two Objects
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real, imag;
+    Complex(int r = 0, int i = 0) : real(r), imag(i) {}
+
+    Complex operator+(const Complex &obj) {
+        return Complex(real + obj.real, imag + obj.imag);
+    }
+
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(3, 4), c2(1, 2);
+    Complex c3 = c1 + c2;
+    c3.display();
+    return 0;
+}
+
+Overloading Unary Operators
+
+Unary operators like ++ and -- can also be overloaded.
+
+Example: Overloading ++ Operator
+
+#include <iostream>
+using namespace std;
+
+class Count {
+private:
+    int value;
+public:
+    Count() : value(0) {}
+
+    void operator++() { // Prefix increment
+        ++value;
+    }
+
+    void display() {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    Count c;
+    ++c;
+    c.display();
+    return 0;
+}
+
+Overloading Comparison Operators
+
+We can also overload comparison operators like ==, <, >.
+
+Example: Overloading == Operator
+
+#include <iostream>
+using namespace std;
+
+class Number {
+public:
+    int value;
+    Number(int v) : value(v) {}
+
+    bool operator==(const Number &obj) {
+        return value == obj.value;
+    }
+};
+
+int main() {
+    Number n1(10), n2(10);
+    if (n1 == n2)
+        cout << "Numbers are equal." << endl;
+    else
+        cout << "Numbers are not equal." << endl;
+    return 0;
+}
+
+Summary
+
+Operator overloading allows customizing operator behavior for classes.
+
+Binary and unary operators can be overloaded.
+
+Comparison operators (==, <, >) can also be overloaded.
+
+Overloading improves readability and simplifies object operations.
+
