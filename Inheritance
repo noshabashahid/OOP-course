@@ -1,0 +1,132 @@
+ Inheritance in OOP
+
+What is Inheritance?
+
+Inheritance is one of the core principles of Object-Oriented Programming (OOP). It allows a new class (derived class) to acquire the properties and behaviors of an existing class (base class). This promotes code reuse and hierarchical relationships.
+
+Key Features of Inheritance:
+
+Code Reusability: Derived classes reuse the attributes and methods of base classes.
+
+Hierarchy Representation: Models relationships like parent-child in real-world scenarios.
+
+Extensibility: Allows new functionalities to be added to derived classes without modifying the base class.
+
+Reduced Code Redundancy: Eliminates duplicate code by defining common properties in a base class.
+
+Types of Inheritance
+
+1. Single Inheritance
+
+A derived class inherits from a single base class.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    void eat() {
+        cout << "This animal eats food." << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Dog barks!" << endl;
+    }
+};
+
+int main() {
+    Dog d;
+    d.eat();  // Inherited from Animal
+    d.bark(); // Defined in Dog
+    return 0;
+}
+
+2. Multiple Inheritance
+
+A derived class inherits from more than one base class.
+
+Example:
+
+class A {
+public:
+    void functionA() { cout << "Function A" << endl; }
+};
+
+class B {
+public:
+    void functionB() { cout << "Function B" << endl; }
+};
+
+class C : public A, public B {
+public:
+    void functionC() { cout << "Function C" << endl; }
+};
+
+int main() {
+    C obj;
+    obj.functionA(); // From class A
+    obj.functionB(); // From class B
+    obj.functionC(); // From class C
+    return 0;
+}
+
+3. Hierarchical Inheritance
+
+A single base class is inherited by multiple derived classes.
+
+4. Multilevel Inheritance
+
+A derived class inherits from another derived class, forming a chain.
+
+5. Hybrid Inheritance
+
+A combination of multiple inheritance types.
+
+Access Control in Inheritance
+
+Access Modifier
+
+Inherited as Public
+
+Inherited as Protected
+
+Inherited as Private
+
+Public Members
+
+Public
+
+Protected
+
+Private
+
+Protected Members
+
+Protected
+
+Protected
+
+Private
+
+Private Members
+
+Not Inherited
+
+Not Inherited
+
+Not Inherited
+
+Summary
+
+Inheritance enables a class to acquire properties and behaviors from another class.
+
+Types of Inheritance include single, multiple, hierarchical, multilevel, and hybrid.
+
+Access specifiers determine how members are inherited and accessed.
